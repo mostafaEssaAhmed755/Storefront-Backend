@@ -1,0 +1,10 @@
+CREATE EXTENSION IF NOT EXISTS "uuid-ossp";
+
+CREATE TABLE IF NOT EXISTS order_items (
+    id uuid DEFAULT uuid_generate_v4() PRIMARY KEY,
+    price NUMERIC(10,2) NOT NULL,
+    quantity INTEGER NOT NULL,
+    order_id uuid NOT NULL REFERENCES orders(id)  ON DELETE CASCADE ON UPDATE CASCADE,
+    product_id uuid NOT NULL REFERENCES products(id),
+    created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP NOT NULL
+);
