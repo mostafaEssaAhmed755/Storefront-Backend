@@ -12,16 +12,42 @@ npm install
 
 ## Requirment
 
--   create new database one for `production` and `testing` and set connection data in `.env` file
+-   set up database through PSQL terminal,
 
-```bash
+    -   create new database one for `production` and one for `testing` **Via SQL Query**
+
+    ```sql
+    -- for production
+    CREATE DATABASE databas_store;
+    -- for testing
+    CREATE DATABASE databas_store_test;
+    ```
+
+    -   create new user and give access to the databases **Via SQL Query**
+
+    ```sql
+    -- create user
+    CREATE USER store_admin WITH PASSWORD 'password';
+    -- create privileges to user
+    CREATE ALL PRIVILEGES ON DATABASE databas_store TO store_admin;
+    CREATE ALL PRIVILEGES ON DATABASE databas_store_test TO store_admin;
+    ```
+
+-   set connection data in `.env` file **dont forget** to add database port in `POSTGRES_PORT`
+
+```env
 POSTGRES_HOST=host
 POSTGRES_PORT=port
-POSTGRES_DB=databas_name
-POSTGRES_TEST_DB=databas_name_for_test
-POSTGRES_USER=username
+POSTGRES_DB=databas_store
+POSTGRES_TEST_DB=databas_store_test
+POSTGRES_USER=store_admin
 POSTGRES_PASSWORD=password
+
+# set port number to let project running up
+PORT=3000
 ```
+
+-
 
 ## Running
 
@@ -29,7 +55,7 @@ POSTGRES_PASSWORD=password
 npm run start
 ```
 
-start project in [http://localhost](#http://localhost)
+start project in [http://localhost:3000](#http://localhost:3000)
 
 ## For Test Project
 
