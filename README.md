@@ -2,7 +2,7 @@
 
 ## About
 
-It is an api of an online store, it contains `administrators` who can control the categories, products, users and orders, it also contains `customers` who can browse the categories and products and order products and they can log in and create new accounts.
+My online store API project includes two user roles: administrators and customers. Administrators can manage categories, products, users, and orders, while customers can browse categories and products, place orders, and create accounts. The API is designed to be user-friendly and easy to navigate, with a clear separation of responsibilities between the two user roles. Additionally, the project includes robust authentication and authorization mechanisms to ensure secure access and data management.
 
 ## Setup
 
